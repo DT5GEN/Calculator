@@ -358,7 +358,7 @@
 
 
                 <TextView
-                    android:id="@+id/btn0"
+                    android:id="@+id/button_0"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_margin="6dp"
