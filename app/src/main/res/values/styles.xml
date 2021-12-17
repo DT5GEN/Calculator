@@ -54,9 +54,6 @@
     </style>
 
 
-    <item name="android:textColor">#4100F3</item>
-    <item name="android:background">@drawable/button_values</item>
-    <item name="android:shadowColor">#525252</item>
 
 
 </resources>
