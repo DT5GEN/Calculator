@@ -77,7 +77,7 @@
 
         <TextView
 
-            android:id="@+id/angry_multiplication"
+            android:id="@+id/button_multiplication"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_margin="6dp"
@@ -171,7 +171,7 @@
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/button_minus"
+            android:id="@+id/button_subtraction"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_margin="6dp"
@@ -340,7 +340,7 @@
 
                 <TextView
 
-                    android:id="@+id/button_percent"
+                    android:id="@+id/button_percent_text_view"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_margin="6dp"
@@ -402,7 +402,7 @@
 
             <TextView
 
-                android:id="@+id/angry_btn"
+                android:id="@+id/button_result_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="7dp"
