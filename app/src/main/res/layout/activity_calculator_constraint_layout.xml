@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:padding="12dp"
-    tools:context=".Calculator">
+    tools:context=".MainActivityCalculator">
 
     <ImageView
-        android:id="@+id/display_calculator"
+        android:id="@+id/display_calculator_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/display"
@@ -24,7 +24,7 @@
         android:text="012345678901"
         android:textAlignment="center"
         android:textSize="46sp"
-        app:layout_constraintBottom_toBottomOf="@id/display_calculator"
+        app:layout_constraintBottom_toBottomOf="@id/display_calculator_image_view"
         app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
@@ -37,27 +37,27 @@
         android:layout_marginHorizontal="3dp"
         android:text="%"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/button_0"
+        app:layout_constraintEnd_toStartOf="@id/button_0_text_view"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
-        android:id="@+id/button_0"
+        android:id="@+id/button_0_text_view"
         style="@style/style_buttons_digit"
         android:layout_marginHorizontal="3dp"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button_dot"
+        app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
         app:layout_constraintStart_toEndOf="@+id/button_percent_text_view" />
 
     <TextView
-        android:id="@+id/button_dot"
+        android:id="@+id/button_dot_text_view"
         style="@style/style_buttons_digit"
         android:layout_marginHorizontal="3dp"
         android:text="."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_result_text_view"
-        app:layout_constraintStart_toEndOf="@id/button_0" />
+        app:layout_constraintStart_toEndOf="@id/button_0_text_view" />
 
     <TextView
 
@@ -65,12 +65,12 @@
         style="@style/style_button_result"
         android:layout_marginLeft="5dp"
         android:text="="
-        app:layout_constraintBottom_toBottomOf="@+id/button_dot"
+        app:layout_constraintBottom_toBottomOf="@+id/button_dot_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_1" />
+        app:layout_constraintTop_toTopOf="@+id/button_1_text_view" />
 
     <TextView
-        android:id="@+id/button_1"
+        android:id="@+id/button_1_text_view"
         style="@style/style_buttons_digit"
         android:text="1"
         app:layout_constraintBottom_toTopOf="@+id/button_percent_text_view"
@@ -78,54 +78,54 @@
         app:layout_constraintStart_toStartOf="@id/button_percent_text_view" />
 
     <TextView
-        android:id="@+id/button_2"
+        android:id="@+id/button_2_text_view"
         style="@style/style_buttons_digit"
         android:text="2"
-        app:layout_constraintBottom_toBottomOf="@id/button_1"
-        app:layout_constraintEnd_toEndOf="@id/button_0"
-        app:layout_constraintStart_toStartOf="@id/button_0"
-        app:layout_constraintTop_toTopOf="@id/button_1" />
+        app:layout_constraintBottom_toBottomOf="@id/button_1_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_0_text_view"
+        app:layout_constraintTop_toTopOf="@id/button_1_text_view" />
 
     <TextView
-        android:id="@+id/button_3"
+        android:id="@+id/button_3_text_view"
         style="@style/style_buttons_digit"
         android:text="3"
         android:layout_marginHorizontal="3dp"
-        app:layout_constraintBottom_toTopOf="@id/button_dot"
-        app:layout_constraintEnd_toEndOf="@id/button_dot"
+        app:layout_constraintBottom_toTopOf="@id/button_dot_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
         app:layout_constraintEnd_toStartOf="@+id/button_result_text_view"
-        app:layout_constraintStart_toEndOf="@id/button_2" />
+        app:layout_constraintStart_toEndOf="@id/button_2_text_view" />
 
 
     <TextView
 
-        android:id="@+id/button_4"
+        android:id="@+id/button_4_text_view"
         style="@style/style_buttons_digit"
         android:text="4"
-        app:layout_constraintBottom_toTopOf="@id/button_1"
+        app:layout_constraintBottom_toTopOf="@id/button_1_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
         app:layout_constraintStart_toStartOf="@id/button_percent_text_view"
-        app:layout_constraintTop_toTopOf="@id/button_sum" />
+        app:layout_constraintTop_toTopOf="@id/button_sum_text_view" />
 
     <TextView
-        android:id="@+id/button_5"
+        android:id="@+id/button_5_text_view"
         style="@style/style_buttons_digit"
         android:text="5"
-        app:layout_constraintBottom_toTopOf="@id/button_2"
-        app:layout_constraintEnd_toEndOf="@id/button_0"
-        app:layout_constraintStart_toStartOf="@id/button_2" />
+        app:layout_constraintBottom_toTopOf="@id/button_2_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_2_text_view" />
 
     <TextView
 
-        android:id="@+id/button_6"
+        android:id="@+id/button_6_text_view"
         style="@style/style_buttons_digit"
         android:text="6"
-        app:layout_constraintBottom_toTopOf="@id/button_3"
-        app:layout_constraintEnd_toEndOf="@id/button_dot"
-        app:layout_constraintStart_toStartOf="@id/button_3" />
+        app:layout_constraintBottom_toTopOf="@id/button_3_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_3_text_view" />
 
     <TextView
-        android:id="@+id/button_sum"
+        android:id="@+id/button_sum_text_view"
         style="@style/style_buttons_functions"
         android:text="+"
         app:layout_constraintBottom_toTopOf="@id/button_result_text_view"
@@ -134,72 +134,72 @@
 
     <TextView
 
-        android:id="@+id/button_7"
+        android:id="@+id/button_7_text_view"
         style="@style/style_buttons_digit"
         android:text="7"
-        app:layout_constraintBottom_toTopOf="@id/button_6"
+        app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
         app:layout_constraintStart_toStartOf="@id/button_percent_text_view" />
 
     <TextView
-        android:id="@+id/button_8"
+        android:id="@+id/button_8_text_view"
         style="@style/style_buttons_digit"
         android:text="8"
-        app:layout_constraintBottom_toTopOf="@id/button_6"
-        app:layout_constraintEnd_toEndOf="@id/button_0"
-        app:layout_constraintStart_toStartOf="@id/button_0" />
+        app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_0_text_view" />
 
     <TextView
 
-        android:id="@+id/button_9"
+        android:id="@+id/button_9_text_view"
         style="@style/style_buttons_digit"
         android:text="9"
-        app:layout_constraintBottom_toTopOf="@id/button_6"
-        app:layout_constraintEnd_toEndOf="@id/button_dot"
-        app:layout_constraintStart_toStartOf="@id/button_dot" />
+        app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_dot_text_view" />
 
     <TextView
-        android:id="@+id/button_subtraction"
+        android:id="@+id/button_subtraction_text_view"
         style="@style/style_buttons_functions"
         android:text="-"
-        app:layout_constraintBottom_toTopOf="@id/button_sum"
-        app:layout_constraintEnd_toEndOf="@id/button_sum"
-        app:layout_constraintStart_toStartOf="@id/button_sum" />
+        app:layout_constraintBottom_toTopOf="@id/button_sum_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
 
 
     <TextView
 
-        android:id="@+id/button_reset"
+        android:id="@+id/button_reset_text_view"
         style="@style/style_buttons_functions"
         android:text="c"
-        app:layout_constraintBottom_toTopOf="@id/button_7"
+        app:layout_constraintBottom_toTopOf="@id/button_7_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
         app:layout_constraintStart_toStartOf="@id/button_percent_text_view" />
 
     <TextView
-        android:id="@+id/button_separation"
+        android:id="@+id/button_separation_text_view"
         style="@style/style_buttons_functions"
         android:text="÷"
-        app:layout_constraintBottom_toTopOf="@id/button_8"
-        app:layout_constraintEnd_toEndOf="@id/button_0"
-        app:layout_constraintStart_toStartOf="@id/button_0" />
+        app:layout_constraintBottom_toTopOf="@id/button_8_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_0_text_view" />
 
     <TextView
 
-        android:id="@+id/button_multiplication"
+        android:id="@+id/button_multiplication_text_view"
         style="@style/style_buttons_functions"
         android:text="×"
-        app:layout_constraintBottom_toTopOf="@id/button_8"
-        app:layout_constraintEnd_toEndOf="@id/button_dot"
-        app:layout_constraintStart_toStartOf="@id/button_dot" />
+        app:layout_constraintBottom_toTopOf="@id/button_8_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_dot_text_view" />
 
     <TextView
-        android:id="@+id/button_backspace"
+        android:id="@+id/button_backspace_text_view"
         style="@style/style_buttons_functions"
         android:text='del'
-        app:layout_constraintBottom_toTopOf="@id/button_subtraction"
-        app:layout_constraintEnd_toEndOf="@id/button_sum"
-        app:layout_constraintStart_toStartOf="@id/button_sum" />
+        app:layout_constraintBottom_toTopOf="@id/button_subtraction_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
