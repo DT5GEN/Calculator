@@ -26,12 +26,9 @@
         android:textSize="46sp"
         app:layout_constraintBottom_toBottomOf="@id/display_calculator_image_view"
         app:layout_constraintTop_toTopOf="parent">
-
     </TextView>
 
-
     <TextView
-
         android:id="@+id/button_percent_text_view"
         style="@style/style_buttons_digit"
         android:layout_marginHorizontal="3dp"
@@ -39,7 +36,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_0_text_view"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <TextView
         android:id="@+id/button_0_text_view"
@@ -60,7 +56,6 @@
         app:layout_constraintStart_toEndOf="@id/button_0_text_view" />
 
     <TextView
-
         android:id="@+id/button_result_text_view"
         style="@style/style_button_result"
         android:layout_marginLeft="5dp"
@@ -89,8 +84,8 @@
     <TextView
         android:id="@+id/button_3_text_view"
         style="@style/style_buttons_digit"
-        android:text="3"
         android:layout_marginHorizontal="3dp"
+        android:text="3"
         app:layout_constraintBottom_toTopOf="@id/button_dot_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
         app:layout_constraintEnd_toStartOf="@+id/button_result_text_view"
@@ -98,7 +93,6 @@
 
 
     <TextView
-
         android:id="@+id/button_4_text_view"
         style="@style/style_buttons_digit"
         android:text="4"
@@ -116,7 +110,6 @@
         app:layout_constraintStart_toStartOf="@id/button_2_text_view" />
 
     <TextView
-
         android:id="@+id/button_6_text_view"
         style="@style/style_buttons_digit"
         android:text="6"
@@ -133,7 +126,6 @@
         app:layout_constraintStart_toStartOf="@id/button_result_text_view" />
 
     <TextView
-
         android:id="@+id/button_7_text_view"
         style="@style/style_buttons_digit"
         android:text="7"
@@ -150,7 +142,6 @@
         app:layout_constraintStart_toStartOf="@id/button_0_text_view" />
 
     <TextView
-
         android:id="@+id/button_9_text_view"
         style="@style/style_buttons_digit"
         android:text="9"
@@ -166,9 +157,7 @@
         app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
         app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
 
-
     <TextView
-
         android:id="@+id/button_reset_text_view"
         style="@style/style_buttons_functions"
         android:text="c"
@@ -185,7 +174,6 @@
         app:layout_constraintStart_toStartOf="@id/button_0_text_view" />
 
     <TextView
-
         android:id="@+id/button_multiplication_text_view"
         style="@style/style_buttons_functions"
         android:text="×"
@@ -200,6 +188,4 @@
         app:layout_constraintBottom_toTopOf="@id/button_subtraction_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
         app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
