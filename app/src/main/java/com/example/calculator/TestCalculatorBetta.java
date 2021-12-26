@@ -1,34 +1,27 @@
 package com.example.calculator;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivityCalculator extends AppCompatActivity {
+public class TestCalculatorBetta extends AppCompatActivity {
 
-    private Calculator calculator;        // object of Calculator class
+
+    private Calculator calculator; // object of Calculator class
     private TextView inputValue1TextView; // for TextView ID - input_value_1
     private TextView inputValue2TextView; // for TextView ID - input_value_2
-    private TextView operatorTextView;    // for TextView ID - input_operation
+    private TextView operatorTextView; // for TextView ID - input_operation
     private TextView finalResultTextView; // for TextView ID - textView_result
-    private TextView completeOperation;   // for TextView ID - complete_operation
-    private double numberOne;             // first number
-    private double numberTwo;             // second number
-    private String operationString;       // current operation
+    private TextView completeOperation; // for TextView ID - complete_operation
+    private double numberOne; // first number
+    private double numberTwo; // second number
+    private String operationString; // current operation
     private static int MAX_CHARACTERS = 12;
-    private static final String FIRST_NUMBER_KEY       = "first_number";
-    private static final String SECOND_NUMBER_KEY      = "second_number";
-    private static final String OPERATION_KEY          = "operation";
-    private static final String FINAL_RESULT_KEY       = "final_result";
-    private static final String COMPLETE_OPERATION_KEY = "complete_operation";
-    private static final String OPERATION_STRING_KEY   = "operation_string";
-    private static final String NUMBER_ONE_KEY         = "number_one";
-    private static final String NUMBER_TWO_KEY         = "number_two";
-
 
     private enum operator {
         ADD, SUB, MUL, DIV, MOD, NULL
@@ -39,44 +32,43 @@ public class MainActivityCalculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator_constraint_layout);
         calculator = new Calculator();
-        inputValue1TextView = findViewById(R.id.input_value_1_text_view);   // first number
-        inputValue2TextView = findViewById(R.id.input_value_2_text_view);   // second number
-        operatorTextView = findViewById(R.id.input_operation_text_view);    //operation
-        finalResultTextView = findViewById(R.id.display_text_view);         // final result
-        completeOperation = findViewById(R.id.complete_operation_text_view);// string containing the numbers and the operation
-        operationString = MainActivityCalculator.operator.NULL.name();
+        inputValue1TextView = findViewById(R.id.input_value_1_text_view); // first number
+        inputValue2TextView = findViewById(R.id.input_value_2_text_view); // second number
+        operatorTextView = findViewById(R.id.input_operation_text_view); //operation
+        finalResultTextView = findViewById(R.id.display_text_view); // final result
+        completeOperation = findViewById(R.id.complete_operation); // string containing the numbers and the operation
+        operationString = TestCalculatorBetta.operator.NULL.name();
 
-
-    //    Implementation of saved instance state
+//        Implementation of saved instance state
         if (savedInstanceState != null) {
-            inputValue1TextView.setText(savedInstanceState.getString(FIRST_NUMBER_KEY, ""));
-            inputValue2TextView.setText(savedInstanceState.getString(SECOND_NUMBER_KEY, ""));
-            operatorTextView.setText(savedInstanceState.getString(OPERATION_KEY, ""));
-            finalResultTextView.setText(savedInstanceState.getString(FINAL_RESULT_KEY, ""));
-            completeOperation.setText(savedInstanceState.getString(COMPLETE_OPERATION_KEY, ""));
-            operationString = savedInstanceState.getString(OPERATION_STRING_KEY, MainActivityCalculator.operator.NULL.name());
-            numberOne = savedInstanceState.getDouble(NUMBER_ONE_KEY, 0);
-            numberTwo = savedInstanceState.getDouble(NUMBER_TWO_KEY, 0);
+            inputValue1TextView.setText(savedInstanceState.getString("First_number", ""));
+            inputValue2TextView.setText(savedInstanceState.getString("Second_number", ""));
+            operatorTextView.setText(savedInstanceState.getString("Operation", ""));
+            finalResultTextView.setText(savedInstanceState.getString("Final_result", ""));
+            completeOperation.setText(savedInstanceState.getString("Complete_operation", ""));
+            operationString = savedInstanceState.getString("Operation_string", TestCalculatorBetta.operator.NULL.name());
+            numberOne = savedInstanceState.getDouble("Number_one", 0);
+            numberTwo = savedInstanceState.getDouble("Number_two", 0);
         }
     }
 
     //    implementation of Saved instance state
-        @Override
+    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(FIRST_NUMBER_KEY, inputValue1TextView.getText().toString());
-        outState.putString(OPERATION_KEY, operatorTextView.getText().toString());
-        outState.putString(SECOND_NUMBER_KEY, inputValue2TextView.getText().toString());
-        outState.putString(FINAL_RESULT_KEY, finalResultTextView.getText().toString());
-        outState.putString(COMPLETE_OPERATION_KEY, completeOperation.getText().toString());
-        outState.putString(OPERATION_STRING_KEY, operationString);
-        outState.putDouble(NUMBER_ONE_KEY, numberOne);
-        outState.putDouble(NUMBER_TWO_KEY, numberTwo);
+        outState.putString("First_number", inputValue1TextView.getText().toString());
+        outState.putString("Operation", operatorTextView.getText().toString());
+        outState.putString("Second_number", inputValue2TextView.getText().toString());
+        outState.putString("Final_result", finalResultTextView.getText().toString());
+        outState.putString("Complete_operation", completeOperation.getText().toString());
+        outState.putString("Operation_string", operationString);
+        outState.putDouble("Number_one", numberOne);
+        outState.putDouble("Number_two", numberTwo);
     }
 
     //    method to check where to append the numbers (first or second number)
     private void selectTextViewToAppend(String number) {
-        if (operationString.equals(MainActivityCalculator.operator.NULL.name())) {
+        if (operationString.equals(TestCalculatorBetta.operator.NULL.name())) {
             if (inputValue1TextView.getText().toString().contains(".")) {
                 MAX_CHARACTERS++;
             }
@@ -102,11 +94,11 @@ public class MainActivityCalculator extends AppCompatActivity {
         }
     }
 
-    //     handle operations for numbers
+    //            handle operations for numbers
     @SuppressLint("NonConstantResourceId")
     public void onNumClick(View view) {
         if (!finalResultTextView.getText().toString().equals("")) {
-           //  onClearClick(view);
+           // onClearClick(view);
         }
         switch (view.getId()) {
             case R.id.button_1_text_view:
@@ -140,7 +132,7 @@ public class MainActivityCalculator extends AppCompatActivity {
                 selectTextViewToAppend("0");
                 break;
             case R.id.button_dot_text_view:
-                if (operationString.equals(MainActivityCalculator.operator.NULL.name())) {
+                if (operationString.equals(TestCalculatorBetta.operator.NULL.name())) {
                     if (inputValue1TextView.getText().toString().contains(".")) {
                         Toast.makeText(this, "вы уже ввели десятичную точку", Toast.LENGTH_LONG).show();
                     } else {
@@ -159,34 +151,34 @@ public class MainActivityCalculator extends AppCompatActivity {
         }
     }
 
-    //      handle operations for operators
+    //            handle operations for operators
     @SuppressLint("NonConstantResourceId")
     public void onOperatorClick(View view) {
         if (!inputValue1TextView.getText().toString().equals("")) {
             switch (view.getId()) {
-                case R.id.button_addition_text_view:
-                    operationString = MainActivityCalculator.operator.ADD.name();
+                case R.id.button_sum_text_view:
+                    operationString = TestCalculatorBetta.operator.ADD.name();
                     operatorTextView.setText("+");
                     break;
                 case R.id.button_subtraction_text_view:
-                    operationString = MainActivityCalculator.operator.SUB.name();
+                    operationString = TestCalculatorBetta.operator.SUB.name();
                     operatorTextView.setText("-");
                     break;
                 case R.id.button_multiplication_text_view:
-                    operationString = MainActivityCalculator.operator.MUL.name();
+                    operationString = TestCalculatorBetta.operator.MUL.name();
                     operatorTextView.setText("x");
                     break;
                 case R.id.button_separation_text_view:
-                    operationString = MainActivityCalculator.operator.DIV.name();
+                    operationString = TestCalculatorBetta.operator.DIV.name();
                     operatorTextView.setText("/");
                     break;
                 case R.id.button_percent_text_view:
-                    operationString = MainActivityCalculator.operator.MOD.name();
+                    operationString = TestCalculatorBetta.operator.MOD.name();
                     operatorTextView.setText("%");
                     break;
 
                 default:
-                    operationString = MainActivityCalculator.operator.NULL.name();
+                    operationString = TestCalculatorBetta.operator.NULL.name();
                     break;
             }
 
@@ -195,7 +187,7 @@ public class MainActivityCalculator extends AppCompatActivity {
     }
 
     public void onEqualsClick(View view) {
-    //     handle equals click
+//        handle equals click
         if (inputValue1TextView.getText().toString().equals("") || operatorTextView.getText().toString().equals("") || inputValue2TextView.getText().toString().equals("")) {
             Toast.makeText(this, "Введите число или операцию", Toast.LENGTH_LONG).show();
         } else {
@@ -203,29 +195,29 @@ public class MainActivityCalculator extends AppCompatActivity {
             numberTwo = Double.parseDouble(inputValue2TextView.getText().toString());
             String operation;
 
-            switch (MainActivityCalculator.operator.valueOf(operationString)) {
+            switch (TestCalculatorBetta.operator.valueOf(operationString)) {
                 case ADD:
                     finalResultTextView.setText(String.valueOf(calculator.addition(numberOne, numberTwo)));
-                    operation = inputValue1TextView.getText().toString() + getString(R.string.text_addition) + inputValue2TextView.getText().toString();
+                    operation = inputValue1TextView.getText().toString() + getString(R.string.button_plus) + inputValue2TextView.getText().toString();
                     inputValue1TextView.setText(String.valueOf(calculator.addition(numberOne, numberTwo)));
                     clearTail();
                     break;
                 case SUB:
                     finalResultTextView.setText(String.valueOf(calculator.subtraction(numberOne, numberTwo)));
-                    operation = inputValue1TextView.getText().toString() + getString(R.string.text_subtraction) + inputValue2TextView.getText().toString();
+                    operation = inputValue1TextView.getText().toString() + getString(R.string.button_minus) + inputValue2TextView.getText().toString();
                     inputValue1TextView.setText(String.valueOf(calculator.subtraction(numberOne, numberTwo)));
                     clearTail();
                     break;
                 case MUL:
                     finalResultTextView.setText(String.valueOf(calculator.multiplication(numberOne, numberTwo)));
-                    operation = inputValue1TextView.getText().toString() + getString(R.string.text_multiplication) + inputValue2TextView.getText().toString();
+                    operation = inputValue1TextView.getText().toString() + getString(R.string.button_mul) + inputValue2TextView.getText().toString();
                     inputValue1TextView.setText(String.valueOf(calculator.multiplication(numberOne, numberTwo)));
                     clearTail();
                     break;
                 case DIV:
                     try {
                         finalResultTextView.setText(String.valueOf(calculator.division(numberOne, numberTwo)));
-                        operation = inputValue1TextView.getText().toString() + getString(R.string.text_separation) + inputValue2TextView.getText().toString();
+                        operation = inputValue1TextView.getText().toString() + getString(R.string.button_div) + inputValue2TextView.getText().toString();
                         inputValue1TextView.setText(String.valueOf(calculator.division(numberOne, numberTwo)));
                     } catch (IllegalArgumentException e) {
                         Toast.makeText(this, getString(R.string.error), Toast.LENGTH_LONG).show();
@@ -236,7 +228,7 @@ public class MainActivityCalculator extends AppCompatActivity {
                     break;
                 case MOD:
                     finalResultTextView.setText(String.valueOf(calculator.modulus(numberOne, numberTwo)));
-                    operation = inputValue1TextView.getText().toString() + getString(R.string.text_percent) + inputValue2TextView.getText().toString();
+                    operation = inputValue1TextView.getText().toString() + getString(R.string.button_mod) + inputValue2TextView.getText().toString();
                     inputValue1TextView.setText(String.valueOf(calculator.modulus(numberOne, numberTwo)));
                     clearTail();
                     break;
@@ -249,7 +241,7 @@ public class MainActivityCalculator extends AppCompatActivity {
                     break;
             }
             completeOperation.setText(operation);
-            // clearAll();
+           // clearAll();
         }
     }
 
@@ -267,10 +259,10 @@ public class MainActivityCalculator extends AppCompatActivity {
         inputValue2TextView.setText("");
         numberOne = 0;
         numberTwo = 0;
-        operationString = MainActivityCalculator.operator.NULL.name();
+        operationString = TestCalculatorBetta.operator.NULL.name();
     }
 
-    public void clearTail() {
+    public void clearTail(){
         inputValue2TextView.setText("");
         operatorTextView.setText("");
     }
