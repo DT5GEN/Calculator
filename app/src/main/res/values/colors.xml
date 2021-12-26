@@ -9,4 +9,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_lcd_display">#D5292929</color>
+    <color name="color_complete_operation">#07DC35</color>
 </resources>

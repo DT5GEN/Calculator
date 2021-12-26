@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:padding="12dp"
-    tools:context=".TestCalculatorBetta">
+    tools:context=".MainActivityCalculator">
 
     <ImageView
         android:id="@+id/display_calculator_image_view"
@@ -18,38 +18,21 @@
 
     <TextView
         android:id="@+id/display_text_view"
+        style="@style/style_display"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginHorizontal="30dp"
-        android:fontFamily="@font/press_start_2p"
-        android:scaleY="1.4"
-        android:maxLines="1"
-        android:text="012345678901"
-        android:textAlignment="viewEnd"
-        android:textSize="26sp"
+        android:text="@string/display_text_view_example"
         app:layout_constraintBottom_toBottomOf="@id/display_calculator_image_view"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="42dp" />
-    <TextView
-        android:id="@+id/display_operations_text_view"
-        android:layout_marginHorizontal="36dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:textAlignment="viewEnd"
-        android:fontFamily="sans-serif"
-        android:text=""
-        android:textSize="26sp"
-        app:layout_constraintTop_toBottomOf="@+id/display_text_view">
-    </TextView>
+
 
     <LinearLayout
+        android:id="@+id/display_operations_field_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_display_operations_field"
         android:gravity="end"
-        android:layout_marginVertical="20dp"
+        android:layout_marginVertical="@dimen/margin_vertical_display_operations_field"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/display_text_view"
@@ -57,64 +40,25 @@
 
         <TextView
             android:id="@+id/input_value_1_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:baselineAligned="false"
-            android:ellipsize="end"
-            android:maxLength="12"
-            android:maxLines="1"
-            android:layout_marginVertical="8dp"
-            android:fontFamily="@font/press_start_2p"
-            android:text="test value 1"
-            android:scaleY="1.6"
-            android:textSize="12sp"
-            android:textAlignment="textEnd"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#D5292929"
+            style="@style/style_display_operations_field"
+            android:text="@string/text_test_value_1"
             app:layout_constraintBottom_toTopOf="@+id/button_backspace"
             app:layout_constraintEnd_toStartOf="@+id/input_operation_text_view" />
 
         <TextView
             android:id="@+id/input_operation_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:baselineAligned="false"
-            android:layout_marginVertical="8dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/press_start_2p"
-            android:textSize="12sp"
-            android:maxLines="1"
-            android:maxLength="1"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"
+            style="@style/style_display_operations_field"
+            android:paddingLeft="@dimen/padding_left_input_operation"
+            android:paddingRight="@dimen/padding_right_input_operation"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#D5292929"
             app:layout_constraintBottom_toTopOf="@+id/button_backspace"
             app:layout_constraintEnd_toStartOf="@+id/input_value_2_text_view" />
 
         <TextView
             android:id="@+id/input_value_2_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginVertical="8dp"
-            android:baselineAligned="false"
-            android:ellipsize="end"
-            android:gravity="end"
-            android:maxLength="12"
-            android:maxLines="1"
-            android:textAlignment="textEnd"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="test value 2"
-            android:scaleY="1.6"
-            android:fontFamily="@font/press_start_2p"
-            android:textSize="12sp"
-            android:textColor="#D5292929"
+            style="@style/style_display_operations_field"
+            android:text="@string/text_test_value_2"
+            android:textColor="@color/color_lcd_display"
             app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -123,29 +67,17 @@
 
 
     <TextView
-        android:id="@+id/complete_operation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginVertical="30dp"
-        android:text="test complete operations"
-        android:layout_marginHorizontal="25dp"
-        android:fontFamily="@font/press_start_2p"
-        android:scaleY="1.6"
-        android:textSize="13sp"
-        android:gravity="end"
-        android:textAlignment="viewEnd"
-        android:textColor="#07DC35"
-        android:maxLines="1"
-
+        android:id="@+id/complete_operation_text_view"
+        style="@style/style_complete_operation_display"
+        android:text="@string/text_test_complete_operations"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/display_calculator_image_view" />
 
     <TextView
         android:id="@+id/button_percent_text_view"
         style="@style/style_buttons_digit"
-        android:layout_marginHorizontal="3dp"
-        android:text="%"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_3dp"
+        android:text="@string/text_percent"
         android:onClick="onOperatorClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_0_text_view"
@@ -155,8 +87,8 @@
     <TextView
         android:id="@+id/button_0_text_view"
         style="@style/style_buttons_digit"
-        android:layout_marginHorizontal="3dp"
-        android:text="0"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_3dp"
+        android:text="@string/text_0"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
@@ -165,8 +97,8 @@
     <TextView
         android:id="@+id/button_dot_text_view"
         style="@style/style_buttons_digit"
-        android:layout_marginHorizontal="3dp"
-        android:text="."
+        android:layout_marginHorizontal="@dimen/horizontal_margin_3dp"
+        android:text="@string/text_dot"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_result_text_view"
@@ -175,8 +107,8 @@
     <TextView
         android:id="@+id/button_result_text_view"
         style="@style/style_button_result"
-        android:layout_marginLeft="5dp"
-        android:text="="
+        android:layout_marginLeft="@dimen/margin_left_button_result"
+        android:text="@string/text_result"
         android:onClick="onEqualsClick"
         app:layout_constraintBottom_toBottomOf="@+id/button_dot_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +117,7 @@
     <TextView
         android:id="@+id/button_1_text_view"
         style="@style/style_buttons_digit"
-        android:text="1"
+        android:text="@string/text_1"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@+id/button_percent_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
@@ -194,7 +126,7 @@
     <TextView
         android:id="@+id/button_2_text_view"
         style="@style/style_buttons_digit"
-        android:text="2"
+        android:text="@string/text_2"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toBottomOf="@id/button_1_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
@@ -204,8 +136,8 @@
     <TextView
         android:id="@+id/button_3_text_view"
         style="@style/style_buttons_digit"
-        android:layout_marginHorizontal="3dp"
-        android:text="3"
+        android:layout_marginHorizontal="@dimen/horizontal_margin_3dp"
+        android:text="@string/text_3"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_dot_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
@@ -216,17 +148,17 @@
     <TextView
         android:id="@+id/button_4_text_view"
         style="@style/style_buttons_digit"
-        android:text="4"
+        android:text="@string/text_4"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toBottomOf="@id/button_5_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
         app:layout_constraintStart_toStartOf="@id/button_percent_text_view"
-        app:layout_constraintTop_toTopOf="@id/button_sum_text_view" />
+        app:layout_constraintTop_toTopOf="@id/button_addition_text_view" />
 
     <TextView
         android:id="@+id/button_5_text_view"
         style="@style/style_buttons_digit"
-        android:text="5"
+        android:text="@string/text_5"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_2_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
@@ -235,16 +167,16 @@
     <TextView
         android:id="@+id/button_6_text_view"
         style="@style/style_buttons_digit"
-        android:text="6"
+        android:text="@string/text_6"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_3_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
         app:layout_constraintStart_toStartOf="@id/button_3_text_view" />
 
     <TextView
-        android:id="@+id/button_sum_text_view"
+        android:id="@+id/button_addition_text_view"
         style="@style/style_buttons_functions"
-        android:text="+"
+        android:text="@string/text_addition"
         android:onClick="onOperatorClick"
         app:layout_constraintBottom_toTopOf="@id/button_3_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +185,7 @@
     <TextView
         android:id="@+id/button_7_text_view"
         style="@style/style_buttons_digit"
-        android:text="7"
+        android:text="@string/text_7"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
@@ -262,7 +194,7 @@
     <TextView
         android:id="@+id/button_8_text_view"
         style="@style/style_buttons_digit"
-        android:text="8"
+        android:text="@string/text_8"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
@@ -271,7 +203,7 @@
     <TextView
         android:id="@+id/button_9_text_view"
         style="@style/style_buttons_digit"
-        android:text="9"
+        android:text="@string/text_9"
         android:onClick="onNumClick"
         app:layout_constraintBottom_toTopOf="@id/button_6_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
@@ -280,16 +212,16 @@
     <TextView
         android:id="@+id/button_subtraction_text_view"
         style="@style/style_buttons_functions"
-        android:text="-"
+        android:text="@string/text_subtraction"
         android:onClick="onOperatorClick"
-        app:layout_constraintBottom_toTopOf="@id/button_sum_text_view"
-        app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
-        app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
+        app:layout_constraintBottom_toTopOf="@id/button_addition_text_view"
+        app:layout_constraintEnd_toEndOf="@id/button_addition_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_addition_text_view" />
 
     <TextView
         android:id="@+id/button_reset_text_view"
         style="@style/style_buttons_functions"
-        android:text="c"
+        android:text="@string/text_reset"
         android:onClick="onClearClick"
         app:layout_constraintBottom_toTopOf="@id/button_7_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_percent_text_view"
@@ -298,7 +230,7 @@
     <TextView
         android:id="@+id/button_separation_text_view"
         style="@style/style_buttons_functions"
-        android:text="÷"
+        android:text="@string/text_separation"
         android:onClick="onOperatorClick"
         app:layout_constraintBottom_toTopOf="@id/button_8_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_0_text_view"
@@ -307,7 +239,7 @@
     <TextView
         android:id="@+id/button_multiplication_text_view"
         style="@style/style_buttons_functions"
-        android:text="×"
+        android:text="@string/text_multiplication"
         android:onClick="onOperatorClick"
         app:layout_constraintBottom_toTopOf="@id/button_8_text_view"
         app:layout_constraintEnd_toEndOf="@id/button_dot_text_view"
@@ -316,9 +248,9 @@
     <TextView
         android:id="@+id/button_backspace_text_view"
         style="@style/style_buttons_functions"
-        android:text='del'
+        android:text="@string/text_del"
         android:onClick="onBackspaceClick"
         app:layout_constraintBottom_toTopOf="@id/button_subtraction_text_view"
-        app:layout_constraintEnd_toEndOf="@id/button_sum_text_view"
-        app:layout_constraintStart_toStartOf="@id/button_sum_text_view" />
+        app:layout_constraintEnd_toEndOf="@id/button_addition_text_view"
+        app:layout_constraintStart_toStartOf="@id/button_addition_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

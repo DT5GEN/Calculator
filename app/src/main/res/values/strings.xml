@@ -2,25 +2,29 @@
 
     <string name="app_name">Calculator</string>
     <string name="button_clear">C</string>
-    <string name="button_root"> √ </string>
-    <string name="button_plus"> + </string>
-    <string name="button_7">7</string>
-    <string name="button_8">8</string>
-    <string name="button_9">9</string>
-    <string name="button_minus"> - </string>
-    <string name="button_4">4</string>
-    <string name="button_5">5</string>
-    <string name="button_6">6</string>
-    <string name="button_mul"> x </string>
-    <string name="button_1">1</string>
-    <string name="button_2">2</string>
-    <string name="button_3">3</string>
-    <string name="button_div"> / </string>
-    <string name="button_dot"> . </string>
-    <string name="button_0">0</string>
-    <string name="button_equals"> = </string>
-    <string name="button_mod"> % </string>
-    <string name="button_pow"> ^ </string>
     <string name="error">Error</string>
-    <string name="backspace">Backspace</string>
+    <string name="display_operations_default_text" />
+    <string name="display_text_view_example">012345678901</string>
+    <string name="text_del">del</string>
+    <string name="text_multiplication">×</string>
+    <string name="text_separation">÷</string>
+    <string name="text_reset">c</string>
+    <string name="text_subtraction">-</string>
+    <string name="text_9">9</string>
+    <string name="text_8">8</string>
+    <string name="text_7">7</string>
+    <string name="text_addition">+</string>
+    <string name="text_6">6</string>
+    <string name="text_5">5</string>
+    <string name="text_4">4</string>
+    <string name="text_3">3</string>
+    <string name="text_2">2</string>
+    <string name="text_1">1</string>
+    <string name="text_result">=</string>
+    <string name="text_dot">.</string>
+    <string name="text_0">0</string>
+    <string name="text_percent">%</string>
+    <string name="text_test_complete_operations">test complete operations</string>
+    <string name="text_test_value_1">test value1</string>
+    <string name="text_test_value_2">test value2</string>
 </resources>
