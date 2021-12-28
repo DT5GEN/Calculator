@@ -73,6 +73,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/display_calculator_image_view" />
 
+    <Button
+        android:id="@+id/parcelable_move_digit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_move_digit"
+        app:layout_constraintTop_toBottomOf="@+id/complete_operation_text_view"/>
+
     <TextView
         android:id="@+id/button_percent_text_view"
         style="@style/style_buttons_digit"

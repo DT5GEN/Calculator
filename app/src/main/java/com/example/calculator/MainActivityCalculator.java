@@ -1,14 +1,23 @@
 package com.example.calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 
 public class MainActivityCalculator extends AppCompatActivity {
+
+    private Button parcelableMoveDigitButton;
 
     private Calculator calculator;        // object of Calculator class
     private TextView inputValue1TextView; // for TextView ID - input_value_1
@@ -20,14 +29,14 @@ public class MainActivityCalculator extends AppCompatActivity {
     private double numberTwo;             // second number
     private String operationString;       // current operation
     private static int MAX_CHARACTERS = 12;
-    private static final String FIRST_NUMBER_KEY       = "first_number";
-    private static final String SECOND_NUMBER_KEY      = "second_number";
-    private static final String OPERATION_KEY          = "operation";
-    private static final String FINAL_RESULT_KEY       = "final_result";
+    private static final String FIRST_NUMBER_KEY = "first_number";
+    private static final String SECOND_NUMBER_KEY = "second_number";
+    private static final String OPERATION_KEY = "operation";
+    private static final String FINAL_RESULT_KEY = "final_result";
     private static final String COMPLETE_OPERATION_KEY = "complete_operation";
-    private static final String OPERATION_STRING_KEY   = "operation_string";
-    private static final String NUMBER_ONE_KEY         = "number_one";
-    private static final String NUMBER_TWO_KEY         = "number_two";
+    private static final String OPERATION_STRING_KEY = "operation_string";
+    private static final String NUMBER_ONE_KEY = "number_one";
+    private static final String NUMBER_TWO_KEY = "number_two";
 
 
     private enum operator {
@@ -47,7 +56,7 @@ public class MainActivityCalculator extends AppCompatActivity {
         operationString = MainActivityCalculator.operator.NULL.name();
 
 
-    //    Implementation of saved instance state
+        //    Implementation of saved instance state
         if (savedInstanceState != null) {
             inputValue1TextView.setText(savedInstanceState.getString(FIRST_NUMBER_KEY, ""));
             inputValue2TextView.setText(savedInstanceState.getString(SECOND_NUMBER_KEY, ""));
@@ -58,10 +67,30 @@ public class MainActivityCalculator extends AppCompatActivity {
             numberOne = savedInstanceState.getDouble(NUMBER_ONE_KEY, 0);
             numberTwo = savedInstanceState.getDouble(NUMBER_TWO_KEY, 0);
         }
+
+        parcelableMoveDigitButton = findViewById(R.id.parcelable_move_digit_button);
+
+        // Parcelable transfer
+        parcelableMoveDigitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // create HomeWorkDisplayInfo object
+                HomeWorkDisplayInfo homeWorkDisplayInfo = new HomeWorkDisplayInfo(finalResultTextView.getText().toString(),
+                        completeOperation.getText().toString());
+
+                // create intent to MainActivityCalculator class
+                Intent intent = new Intent(MainActivityCalculator.this, MoveDigit.class);
+                // Add HomeWorkDisplayInfo data as extras to the intent
+                intent.putExtra("Data", homeWorkDisplayInfo);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //    implementation of Saved instance state
-        @Override
+    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(FIRST_NUMBER_KEY, inputValue1TextView.getText().toString());
@@ -106,7 +135,7 @@ public class MainActivityCalculator extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     public void onNumClick(View view) {
         if (!finalResultTextView.getText().toString().equals("")) {
-           //  onClearClick(view);
+            //  onClearClick(view);
         }
         switch (view.getId()) {
             case R.id.button_1_text_view:
@@ -194,14 +223,16 @@ public class MainActivityCalculator extends AppCompatActivity {
 
     }
 
+
     public void onEqualsClick(View view) {
-    //     handle equals click
+        //     handle equals click
         if (inputValue1TextView.getText().toString().equals("") || operatorTextView.getText().toString().equals("") || inputValue2TextView.getText().toString().equals("")) {
             Toast.makeText(this, "Введите число или операцию", Toast.LENGTH_LONG).show();
         } else {
             numberOne = Double.parseDouble(inputValue1TextView.getText().toString());
             numberTwo = Double.parseDouble(inputValue2TextView.getText().toString());
             String operation;
+
 
             switch (MainActivityCalculator.operator.valueOf(operationString)) {
                 case ADD:
@@ -299,5 +330,6 @@ public class MainActivityCalculator extends AppCompatActivity {
         backspace = backspace.substring(0, backspace.length() - 1);
         view.setText(backspace);
     }
+
 
 }
